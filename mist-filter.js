@@ -27,7 +27,7 @@ Polymer({
       }
 
       h2.titleh2 {
-        line-height: 1.1em !important;
+        line-height: 0.9em !important;
         margin: var(--mist-filter-h2-title-margin);
         width: 100%;
       }
