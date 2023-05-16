@@ -21,7 +21,7 @@ Polymer({
       }
 
       span.title {
-        font-size: 16px !important;
+        font-size: 14px !important;
         text-transform: capitalize;
         font-weight: 500;
       }
