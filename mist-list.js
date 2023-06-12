@@ -35,7 +35,7 @@ $_documentContainer.innerHTML = `<dom-module id="mist-list-grid" theme-for="vaad
             thead th:first-child {z-index: 3 !important;}
 
             :host([theme~="row-stripes"]) [part~="row"]:not([odd]) [part~="body-cell"] {
-                background-color: rgb(249, 249, 249);
+                /*background-color: rgb(249, 249, 249);*/
                 background-image: none; /*linear-gradient(rgb(249, 249, 249), rgb(249, 249, 249));*/
             }
 
@@ -224,8 +224,9 @@ Polymer({
             span.header {
                 text-transform: uppercase;
                 font-size: 14px;
-                font-weight: 400;
+                font-weight: 600;
                 margin-top: 6px;
+                color: #4A4B57;
             }
 
             paper-input {
@@ -395,7 +396,16 @@ Polymer({
             }
 
             .tag {
-                @apply --mist-list-tag-mixin;
+                /*@apply --mist-list-tag-mixin;*/
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                color: #2264D1;
+                background: #EBF2FF;
+                border-radius: 16px;
+                padding: 3px 8px;
             }
 
             h2.dialog-title {
