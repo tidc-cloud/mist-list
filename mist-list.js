@@ -466,25 +466,60 @@ Polymer({
               margin-left: 5px;
             }
 
-            .button>svg {
+            .button>svg,.button-primary>svg {
               margin-right: 10px;
+            }
+
+            .container {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 10px;
             }
 
             .right {
               display: flex;
               justify-content: flex-end;
             }
+
+            .left {
+              display: flex;
+              justify-content: flex-start;
+            }
+
+            .button-primary {
+              background: #2264D1;
+              box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+              border-radius: 4px;
+              min-width: 108px;
+              display: flex;
+              align-items: center;
+              border: 0;
+              padding: 8px;
+              color: #fff;
+              cursor: pointer;
+              justify-content: space-around;
+            }
         </style>
         <template is="dom-if" if="[[showButton]]" restamp="">
-          <div class="right">
-            <paper-button style="padding: 0px;" dialog-confirm="" autofocus="" on-tap="_exportCsv"><button class="button"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.26256 1.09588C1.59075 0.767687 2.03587 0.583313 2.5 0.583313H6.58333C6.73804 0.583313 6.88642 0.644771 6.99581 0.754167L11.0791 4.8375C11.1885 4.9469 11.25 5.09527 11.25 5.24998V11.6666C11.25 12.1308 11.0656 12.5759 10.7374 12.9041C10.4092 13.2323 9.96413 13.4166 9.5 13.4166H2.5C2.03587 13.4166 1.59075 13.2323 1.26256 12.9041C0.934374 12.5759 0.75 12.1308 0.75 11.6666V2.33331C0.75 1.86918 0.934374 1.42406 1.26256 1.09588ZM2.5 1.74998C2.34529 1.74998 2.19692 1.81144 2.08752 1.92083C1.97812 2.03023 1.91667 2.1786 1.91667 2.33331V11.6666C1.91667 11.8214 1.97812 11.9697 2.08752 12.0791C2.19692 12.1885 2.34529 12.25 2.5 12.25H9.5C9.65471 12.25 9.80308 12.1885 9.91248 12.0791C10.0219 11.9697 10.0833 11.8214 10.0833 11.6666V5.83331H6.58333C6.26117 5.83331 6 5.57215 6 5.24998V1.74998H2.5ZM7.16667 2.57494L9.25838 4.66665H7.16667V2.57494Z" fill="#2264D1"/>
-            </svg>
-            Export</button></paper-button>
-            <paper-item style="padding: 0px;" on-tap="_openDialogSelectColumns"><button class="button"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.679311 0.67925C1.0075 0.351061 1.45262 0.166687 1.91675 0.166687H10.0834C10.5475 0.166687 10.9927 0.351061 11.3209 0.67925C11.649 1.00744 11.8334 1.45256 11.8334 1.91669V10.0834C11.8334 10.5475 11.649 10.9926 11.3209 11.3208C10.9927 11.649 10.5475 11.8334 10.0834 11.8334H1.91675C1.45262 11.8334 1.0075 11.649 0.679311 11.3208C0.351122 10.9926 0.166748 10.5475 0.166748 10.0834V1.91669C0.166748 1.45256 0.351122 1.00744 0.679311 0.67925ZM1.91675 1.33335C1.76204 1.33335 1.61367 1.39481 1.50427 1.50421C1.39487 1.6136 1.33341 1.76198 1.33341 1.91669V10.0834C1.33341 10.2381 1.39487 10.3864 1.50427 10.4958C1.61367 10.6052 1.76204 10.6667 1.91675 10.6667H3.66675V1.33335H1.91675ZM4.83341 1.33335V10.6667H7.16675V1.33335H4.83341ZM8.33341 1.33335V10.6667H10.0834C10.2381 10.6667 10.3865 10.6052 10.4959 10.4958C10.6053 10.3864 10.6667 10.2381 10.6667 10.0834V1.91669C10.6667 1.76198 10.6053 1.6136 10.4959 1.50421C10.3865 1.39481 10.2381 1.33335 10.0834 1.33335H8.33341Z" fill="#2264D1"/>
-            </svg>
-            Coloumns</button></paper-item>
+          <div class="container">
+            <div class="left">
+              <paper-button on-tap="_isAddPageActive" style="padding: 0px;margin: 0">
+                <button class="button-primary"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 0.333313C5.32218 0.333313 5.58334 0.59448 5.58334 0.916646V4.41665H9.08334C9.40551 4.41665 9.66668 4.67781 9.66668 4.99998C9.66668 5.32215 9.40551 5.58331 9.08334 5.58331H5.58334V9.08331C5.58334 9.40548 5.32218 9.66665 5.00001 9.66665C4.67784 9.66665 4.41668 9.40548 4.41668 9.08331V5.58331H0.916677C0.594511 5.58331 0.333344 5.32215 0.333344 4.99998C0.333344 4.67781 0.594511 4.41665 0.916677 4.41665H4.41668V0.916646C4.41668 0.59448 4.67784 0.333313 5.00001 0.333313Z" fill="#F5F8FF"/>
+                </svg>                
+                {{renderButton(btnClick)}}</button>
+              </paper-button>
+            </div>
+            <div class="right">
+              <paper-button style="padding: 0px;" dialog-confirm="" autofocus="" on-tap="_exportCsv"><button class="button"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M1.26256 1.09588C1.59075 0.767687 2.03587 0.583313 2.5 0.583313H6.58333C6.73804 0.583313 6.88642 0.644771 6.99581 0.754167L11.0791 4.8375C11.1885 4.9469 11.25 5.09527 11.25 5.24998V11.6666C11.25 12.1308 11.0656 12.5759 10.7374 12.9041C10.4092 13.2323 9.96413 13.4166 9.5 13.4166H2.5C2.03587 13.4166 1.59075 13.2323 1.26256 12.9041C0.934374 12.5759 0.75 12.1308 0.75 11.6666V2.33331C0.75 1.86918 0.934374 1.42406 1.26256 1.09588ZM2.5 1.74998C2.34529 1.74998 2.19692 1.81144 2.08752 1.92083C1.97812 2.03023 1.91667 2.1786 1.91667 2.33331V11.6666C1.91667 11.8214 1.97812 11.9697 2.08752 12.0791C2.19692 12.1885 2.34529 12.25 2.5 12.25H9.5C9.65471 12.25 9.80308 12.1885 9.91248 12.0791C10.0219 11.9697 10.0833 11.8214 10.0833 11.6666V5.83331H6.58333C6.26117 5.83331 6 5.57215 6 5.24998V1.74998H2.5ZM7.16667 2.57494L9.25838 4.66665H7.16667V2.57494Z" fill="#2264D1"/>
+              </svg>
+              Export</button></paper-button>
+              <paper-item style="padding: 0px;" on-tap="_openDialogSelectColumns"><button class="button"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0.679311 0.67925C1.0075 0.351061 1.45262 0.166687 1.91675 0.166687H10.0834C10.5475 0.166687 10.9927 0.351061 11.3209 0.67925C11.649 1.00744 11.8334 1.45256 11.8334 1.91669V10.0834C11.8334 10.5475 11.649 10.9926 11.3209 11.3208C10.9927 11.649 10.5475 11.8334 10.0834 11.8334H1.91675C1.45262 11.8334 1.0075 11.649 0.679311 11.3208C0.351122 10.9926 0.166748 10.5475 0.166748 10.0834V1.91669C0.166748 1.45256 0.351122 1.00744 0.679311 0.67925ZM1.91675 1.33335C1.76204 1.33335 1.61367 1.39481 1.50427 1.50421C1.39487 1.6136 1.33341 1.76198 1.33341 1.91669V10.0834C1.33341 10.2381 1.39487 10.3864 1.50427 10.4958C1.61367 10.6052 1.76204 10.6667 1.91675 10.6667H3.66675V1.33335H1.91675ZM4.83341 1.33335V10.6667H7.16675V1.33335H4.83341ZM8.33341 1.33335V10.6667H10.0834C10.2381 10.6667 10.3865 10.6052 10.4959 10.4958C10.6053 10.3864 10.6667 10.2381 10.6667 10.0834V1.91669C10.6667 1.76198 10.6053 1.6136 10.4959 1.50421C10.3865 1.39481 10.2381 1.33335 10.0834 1.33335H8.33341Z" fill="#2264D1"/>
+              </svg>
+              Coloumns</button></paper-item>
+            </div>
           </div>
         </template>
         <code-viewer id='codeViewer' theme="vs-light" mist-list-fullscreen inside-fullscreen="[[insideFullscreen]]" hidden$="[[!itemFullscreen]]" value="[[fullScreenValue]]" language="json" read-only fullscreen></code-viewer>
@@ -972,11 +1007,27 @@ Polymer({
       value: false,
     },
 
+    btnClick: {
+      type: String,
+      value: '',
+    },
+
     // customProvider should be a function that takes as argument
     // the vaadin-grid element and returns a data provider
     customProvider: {
       type: Object,
     },
+  },
+
+  _isAddPageActive: function (e) {
+    const pathName = window.location.pathname
+    this.dispatchEvent(
+      new CustomEvent('go-to', {
+        bubbles: true,
+        composed: true,
+        detail: { url: `${pathName}/+${pathName==="/machines"?"create":"add"}` },
+      })
+    );
   },
 
   observers: [
@@ -1835,5 +1886,8 @@ Polymer({
   },
   itemIsLeaf(item) {
     return !this.itemHasChildren(item);
+  },
+  renderButton(data) {
+    return data
   },
 });
