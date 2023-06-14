@@ -499,6 +499,22 @@ Polymer({
               cursor: pointer;
               justify-content: space-around;
             }
+
+            .paper-button {
+              font-size: 12px;
+              height: 33px;
+              width: 120px;
+              padding: 4px 12px;
+              font-weight: 400;
+              text-transform: none;
+            }
+
+            .paper-button iron-icon {
+              margin-right: 8px;
+              width: 14px;
+              height: 14px;
+            }
+
         </style>
         <template is="dom-if" if="[[showButton]]" restamp="">
           <div class="container">
@@ -536,6 +552,14 @@ Polymer({
                   </div>
                 </span>
             </mist-filter>
+            <template is="dom-if" if="[[btnAddcloud]]" restamp="">
+              <a href="/clouds/+add" style="text-decoration: auto;"
+                ><paper-button class="paper-button" style="border: 1px solid #9DC2FF"
+                  ><iron-icon src="/ui/assets/icons/plus.svg"></iron-icon>Add
+                  cloud</paper-button
+                ></a
+              >
+            </template>
             <span hidden$="[[!enableFullscreen]]">
                 <paper-icon-button icon="icons:fullscreen" hidden\$="[[fullscreen]]" on-tap="_enterFullscreen" id="fullscreenBtn"></paper-icon-button>
                 <paper-icon-button icon="icons:fullscreen-exit" hidden\$="[[!fullscreen]]" on-tap="_exitFullscreen" id="exitFullscreenBtn"></paper-icon-button>
@@ -997,12 +1021,12 @@ Polymer({
       value: 0,
     },
 
-    vcount: {
+    showButton: {
       type: Boolean,
       value: false,
     },
 
-    showButton: {
+    btnAddcloud: {
       type: Boolean,
       value: false,
     },
